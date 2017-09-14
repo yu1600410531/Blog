@@ -1,0 +1,62 @@
+<div class="col-sm-6">
+
+<!-- Alert -->
+{#<div class="alert alert-success alert-dismissible" role="alert">#}
+{#    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#    <strong>Synergize:</strong> Seamlessly visualize quality intellectual capital!#}
+{#</div>#}
+
+<!-- Articles -->
+    {% for article in latest_article_list %}
+    <div class="row">
+        <article class="col-xs-12">
+            <h4><a id="article_title" href="/fire/{{ article.id }}">{{ article.title }}</a> </h4>
+            {# 显示文章内容前80个字符，已经审核过 #}
+    {#        <p>{{ article.content|truncatechars_html:80 | safe }}</p>#}
+    {#					<p><button class="btn btn-default">Read More</button></p>#}
+            <p class="pull-right"><span class="label label-default">{{ article.column }}</span> <span class="label label-default">tag</span> <span class="label label-default">{{ article.author }}</span></p>
+            <ul class="list-inline">
+                <li><a href="#">{{ article.pub_date | date:"j M" }}</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-comment"></span> {{ article.comment_num }} 评论</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-share"></span> {{ article.keep_num }} 分享</a></li>
+            </ul>
+        </article>
+    </div>
+    <hr>
+{% endfor %}
+{#<nav aria-label="Page navigation" class="col-sm-offset-4 col-sm-4">#}
+{#	<ul class="pagination" aria-label="Page navigation">#}
+{#		{% if stus.has_previos %}#}
+{#		<li>#}
+{#			<a href="?pn={{ stus.previous_page_number }}&keyword={{ request.GET.keyword }}&order={{ request.GET.order }}&rule={{ request.GET.rule }} aria-label=" Previous ">#}
+{#            <span aria-hidden="true ">&laquo;</span>#}
+{#          </a>#}
+{#        </li>#}
+{#      {% endif %}#}
+{#      {% for num in numbers %}#}
+{#        {% if num == pn %}#}
+{#            <li class="active "><a href="?pn={{ num }} ">{{ num }}</a></li>#}
+{#         {% else %}#}
+{#          <li><a href="?pn={{ num }} ">{{ num }}</a></li>#}
+{#          {% endif %}#}
+{#      {% endfor %}#}
+{##}
+{#      {% if stus.has_next %}#}
+{#        <li>#}
+{#          <a href="?pn={{ stus.next_page_number }}&keyword={{ request.GET.keyword }} " aria-label="Next ">#}
+{#            <span aria-hidden="true ">&raquo;</span>#}
+{#          </a>#}
+{#        </li>#}
+{#      {% endif %}#}
+{#      </ul>#}
+{#       <ul>#}
+{#           <li style="list-style-type: none ">当前第{% if request.GET.pn %}{{ request.GET.pn }}{% else %}{{ 1 }}{% endif %}页  总页数：{{ num_pages }}</li>#}
+{#       </ul>#}
+{#        <form action=" " method="get " >#}
+{#            <input type="hidden " value="{{ request.GET.keyword }} " name="keyword ">#}
+{#            <input type="text " name="pn ">#}
+{#            <input type="submit " value="跳转 " class="btn-primary " placeholder="跳转 ">#}
+{#        </form>#}
+{# </nav>#}
+<hr>
+</div><!--/Center Column-->

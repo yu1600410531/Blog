@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% block left %}
+{% endblock %}
+
+{% block center %}
+
+<!-- Center Column -->
+<div class="col-sm-9">
+	{# 文章#}
+	<div class="row">
+		<article class="col-xs-12">
+			<h2>{{ article.title }}</h2>
+			<p class="pull-right">
+				<span class="label label-default">{{ article.column }}</span>
+				<span class="label label-default">{{ article.pub_date | date:"j M" }}</span>
+				<span class="label label-default">{{ article.author }}</span>
+			</p>
+			<p>
+				<hr>
+			</p>
+			<p>{{ content | safe }}</p>
+			<ul class="list-inline">
+				<li>
+					<a href=" "><span class="glyphicon glyphicon-comme"></span> {{ article.comment_num }} 条评论</a>
+				</li>
+				<li>
+					<a href="/fire/{{ article.id }}/keep/"><span class="glyphicon glyphicon-star-empty"></span> {{ article.keep_num }} 收藏</a>
+				</li>
+				<li>
+					<a href="/fire/{{ article.id }}/poll/"><span class="glyphicon glyphicon-thumbs-up"></span> {{ article.poll_num }} 赞同</a>
+				</li>
+			</ul>
+		</article>
+	</div>
+	<hr>
+	<!--评论-->
+	<h3>评论</h3>
+	<hr> {% for comment in comments %}
+	<div class="row">
+		<article class="col-xs-12">
+			<p class="pull-right"><span class="label label-default">tag</span> <span class="label-default label">{{ comment.user }}</span> </p>
+			<p>{{ comment.content }}</p>
+
+			<ul class="list-inline">
+				<li>
+					<a href=" ">{{ comment.pub_date | date:"j M" }}</a>
+				</li>
+				<li>
+					<a href=" "><span class="glyphicon glyphicon-comment"></span> {{ comment.comment_num }} 收藏</a>
+				</li>
+				<li>
+					<a href=" "><span class="glyphicon glyphicon-thumbs-up"></span>{{ comment.poll_num }} 赞同</a>
+				</li>
+			</ul>
+		</article>
+
+	</div>
+	<hr> {% endfor %} {# 评论表格#}
+	<div class="row">
+		<article class="col-xs-12">
+			<h4>写点什么吧:</h4>
+			<form action="/fire/{{ article.id }}/comment/" method="post">
+				{% csrf_token %} {{ commentform.as_p }}
+				<input class="btn btn-default" type="submit" value="提交">
+			</form>
+		</article>
+	</div>
+</div>
+	<hr>
+{% endblock %}

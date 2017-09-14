@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{#{% load staticfiles %}#}
+{% block title %}
+登录
+{%  endblock %}
+{% block navabar %}
+{% endblock %}
+
+{% block center %}
+    <div class="row" style="background-color: deepskyblue; height: 1000px">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="row">
+                <div class="col-xs-12 form center-block">
+                    <form action="" class="form-signin" method="post">
+                        <h2 class="form-signin-heading" style="color: red;">{{ error }}</h2>
+                                {% csrf_token %}
+                                <p>{{ form.as_p }}</p>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+                        <a class="btn btn-lg btn-danger btn-block" href="{% url 'fire:register' %}">注册</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{#<div id="loginModal" class="modal show">#}
+{#	<div class="modal-dialog">#}
+{#		<div class="modal-content">#}
+{#			<div class="modal-header">#}
+{#				<button type="button" class="close">x</button>#}
+{#				<h1 class="text-center text-primary">登录</h1>#}
+{#			</div>#}
+{#			<div class="modal-body">#}
+{#				<form action="" class="form col-md-12 center-block">#}
+{#					<div class="form-group">#}
+{#						<input type="text" class="form-control input-lg" placeholder="用户名">#}
+{#					</div>#}
+{#					<div class="form-group">#}
+{#						<input type="password" class="form-control input-lg" placeholder="登录密码">#}
+{#					</div>#}
+{#					<div class="form-group">#}
+{#						<button class="btn btn-primary btn-lg btn-block">立刻登录</button>#}
+{#						<span><a href="#">找回密码</a></span>#}
+{#						<span><a href="#" class="pull-right">注册</a></span>#}
+{#					</div>#}
+{#				</form>#}
+{#			</div>#}
+{#			<div class="modal-footer">#}
+{##}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
+{#</div>#}
+
+{% endblock %}
+
+{% block foot %}
+{% endblock %}
