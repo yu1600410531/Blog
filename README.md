@@ -1,3 +1,8 @@
 # Blog
-when learnning django, i create a website to practice 
-that's interesting!
+django
+django
+django
+django
+django
+django
+django
