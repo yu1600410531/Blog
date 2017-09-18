@@ -25,7 +25,7 @@ SECRET_KEY = 'ad)-oxp9fbqk^cze1=i3wx9e#=woa18x+&rq)h_qdomhko)c$t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.0.147.221','127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fire',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -135,3 +136,11 @@ MEDIA_URL = '/upload/'
 
 
 LOGIN_URL = "/fire/login/?next='article_id'"
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

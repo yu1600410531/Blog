@@ -21,12 +21,30 @@ from django.views.static import serve
 import upload
 import settings
 import os
+from fire import apiView
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'articles', apiView.ArticleViewSet)
+
+
+
+
+
+
+
 
 urlpatterns = [
+    # url(r'^', include(router.urls)),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
     url(r'^admin/', admin.site.urls),
     url(r'^fire/', include(fire_urls, namespace='fire')),
     url(r'^$', views.index, name='index'),
 
     url(r'^admin/upload/(?P<dir_name>[^/]+)$', upload.upload_image, name='upload_image'),
     url(r"^upload/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT, }),
+
+
 ]

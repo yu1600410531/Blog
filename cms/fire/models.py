@@ -23,9 +23,9 @@ from django.contrib.auth import get_user_model
 #  用户信息扩展
 @python_2_unicode_compatible
 class NewUser(AbstractUser):
-    profile = models.CharField(verbose_name='profile',default='', max_length=256)
+    profile = models.CharField(verbose_name='profile',default='', max_length=256,null= True, blank=True)
     avatar = models.ImageField(verbose_name='用户头像', upload_to='user/', default='default.jpg')
-    email = models.EmailField(verbose_name='邮箱', max_length=50)
+    # email = models.EmailField(verbose_name='邮箱', max_length=50)
 
 
     def __str__(self):
@@ -47,7 +47,6 @@ class Column(models.Model):
 
 # 文章管理器
 class ArticleMananger(models.Manager):
-
     # 查询文章所属分类
     def query_by_column(self,column_id):
         query = self.get_queryset().filter(column_id=column_id)
@@ -75,13 +74,6 @@ class ArticleMananger(models.Manager):
 
 # self.get_queryset()   这个方法得到的是相关的查询集
 
-
-
-
-
-
-
-
 #  文章数据模型
 @python_2_unicode_compatible
 class Article(models.Model):
@@ -100,7 +92,7 @@ class Article(models.Model):
     # 更新时间
     update_time = models.DateTimeField(auto_now_add=True, null=True)
     # 是否发表
-    published = models.BooleanField(verbose_name='notDraft', default=True)
+    published = models.BooleanField(verbose_name='是否发表', default=True)
     # 点赞数量
     poll_num = models.IntegerField(default=0)
     # 评论数量

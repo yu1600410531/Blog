@@ -1,0 +1,70 @@
+{%  extends 'index.html' %}
+{% load staticfiles %}
+{% block left %}
+{% endblock %}
+
+{% block center %}
+    <div class="col-sm-9">
+    <form action="" class="form col-xs-offset-2 col-xs-8" method="post" enctype="multipart/form-data">
+        <h2 class="form-signin-heading" style="color: red">{{ msg }}</h2>
+        <div class="form-group">
+            <label>话题</label>
+            <select name="column" class="form-control">
+                {% for column in column_list %}
+                    <option value="{{ column.id }}">{{ column.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+         <div class="form-group">
+            <label>作者</label>
+            <select name="author_id" class="form-control">
+                {% for author in author_list %}
+                    <option value="{{ author.id }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+          <div class="form-group">
+            <label>标题</label>
+            <input name="title" type="text" class="form-control" placeholder="文章标题">
+        </div>
+
+        <div class="form-group">
+            <label>文章正文</label>
+            <textarea name="content"  id="id_content" class="col-xs-12" rows="100"  placeholder="文章正文"></textarea>
+        </div>
+
+{#        <div class="form-group">#}
+{#            <label>作者</label>#}
+{#            <input type="text" class="form-control" name="author_name" placeholder="作者昵称">#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label>简介</label>#}
+{#            <input type="text" class="form-control" name="profile" placeholder="作者简介">#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label>密码</label>#}
+{#            <input type="password" class="form-control" name="password1" placeholder="输入密码">#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label>重复密码</label>#}
+{#            <input type="password" class="form-control" name="password2" placeholder="重复密码">#}
+{#        </div>#}
+
+        {% csrf_token %}
+        <button type="submit" class="btn-danger form-control">提交</button>
+
+    </form>
+    </div>
+{% endblock %}
+
+
+{%  block js %}
+    <script src="{% static 'kindeditor/kindeditor-all-min.js' %}"></script>
+    <script src="{% static 'kindeditor/lang/zh-CN.js' %}"></script>
+    <script src="{% static 'kindeditor/config.js' %}"></script>
+{% endblock %}

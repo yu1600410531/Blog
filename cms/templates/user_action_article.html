@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+
+{% block left %}
+{% endblock %}
+
+{% block center %}
+
+<div class="col-sm-9">
+    <div class="col-xs-offset-4 col-xs-4">
+        <p style="color: red">{{ msg }}</p>
+    </div>
+    <div class="col-xs-8 col-xs-offset-2">
+    {% for action_obj in temp_list %}
+        <div class="row">
+            <article class="col-xs-12">
+                <h4><a id="article_title" href="/fire/{{ action_obj.article.id }}">{{ action_obj.article.title }}</a> </h4>
+                {# 显示文章内容前80个字符，已经审核过 #}
+                <p>{{ action_obj.article.content | truncatechars:200 | safe }}</p>
+        {#					<p><button class="btn btn-default">Read More</button></p>#}
+                <p class="pull-right"><span class="label label-default">{{ action_obj.article.column }}</span> <span class="label label-default">tag</span> <span class="label label-default">{{ article.author }}</span></p>
+                <ul class="list-inline">
+                    <li><a href="#">{{ action_obj.article.pub_date | date:"j M" }}</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-comment"></span> {{ action_obj.article.comment_num }} 评论</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-share"></span> {{ action_obj.article.keep_num }} 分享</a></li>
+                </ul>
+            </article>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+        {% include 'base/cut_page.html' %}
+
+</div>
+{%  endblock %}
+
+
+

@@ -17,23 +17,26 @@
                     <a href="{% url 'fire:index' %}">首页</a>
                 </li>
                 <li>
-                    <a href="#">用户</a>
+                    <a href="{% url 'fire:create_article' %}">发表文章</a>
                 </li>
                 <li>
-                    <a href="#">关注的人</a>
+                    <a href="{% url 'fire:user_detail' %}">用户信息</a>
+
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户<span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="about-us">
-                        <li><a href="{% url 'fire:user_detail' %}">用户信息</a></li>
-                        <li><a href="#">收藏的文章</a></li>
-                        <li><a href="#">评论的文章</a></li>
+{#                        {% url 'fire:user_detail' %}#}
+{#                        <li> <a href="#">关注的人</a></li>#}
+                        <li><a href="{% url 'fire:user_poll' %}">点赞的文章</a></li>
+                         <li><a href="{% url 'fire:user_keep' %}">收藏的文章</a></li>
+                        <li><a href="{% url 'fire:user_comment' %}">评论的文章</a></li>
                     </ul>
                 </li>
             </ul>
 
             <!-- Search -->
-            <form class="navbar-form navbar-right" action="{% url 'fire:search' %}" role="search" method="post">
+            <form class="navbar-form navbar-right" action="{% url 'fire:search' %}" role="search" method="get">
                 <div class="form-group">
                     {% csrf_token %}
                     <input type="text" name="search_word" class="form-control">

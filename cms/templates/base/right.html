@@ -22,7 +22,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						<span class="glyphicon glyphicon-log-in"></span>
-						在线
+						登录
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -38,8 +38,12 @@
                             {{ login_form.pwd }}
 {#							<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">#}
 						</div>
-						<button type="submit" class="btn btn-default">登录</button>
+                        <div class="center-block text-center">
+                            <button type="submit" class="btn btn-primary">登录</button>
+                            <a href="{% url 'fire:register' %}"><button class="btn btn-danger">注册</button></a>
+                        </div>
 					</form>
+
 				</div>
 			</div>
           {% endif %}
@@ -50,7 +54,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						<span class="glyphicon glyphicon-scale"></span>
-						Dramatically Engage
+						点赞数最高的文章
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -82,39 +86,69 @@
 			</div>
 
 			<!-- Carousel -->
- 			<h3><span class="glyphicon glyphicon-modal-window"></span> Synergization</h3>
+ 			<h3><span class="glyphicon glyphicon-modal-window"></span> 轻松一下</h3>
 			<div id="side-carousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#side-carousel" data-slide-to="0" class="active"></li>
 					<li data-target="#side-carousel" data-slide-to="1"></li>
 					<li data-target="#side-carousel" data-slide-to="2"></li>
+                    <li data-target="#side-carousel" data-slide-to="3"></li>
+                    <li data-target="#side-carousel" data-slide-to="4"></li>
+                    <li data-target="#side-carousel" data-slide-to="5"></li>
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
 						<a href="#">
-							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/1.jpg' %}" alt="">
+							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/u=19752205,130612951&fm=27&gp=0.jpg' %}" alt="">
 						</a>
 						<div class="carousel-caption">
-							<h3>Dramatically Engage</h3>
-							<p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
+							<h3></h3>
+							<p></p>
 						</div>
 					</div>
 					<div class="item">
 						<a href="#">
-							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/2.jpg' %}" alt="">
+							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/u=122495548,2589399830&fm=72.jpg' %}" alt="">
 						</a>
 						<div class="carousel-caption">
-							<h3>Efficiently Unleash</h3>
-							<p>Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
+							<h3></h3>
+							<p></p>
 						</div>
 					</div>
 					<div class="item">
 						<a href="#">
-							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/3.jpg' %}" alt="">
+							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/u=1080199734,2074924317&fm=27&gp=0.jpg' %}" alt="">
 						</a>
 						<div class="carousel-caption">
-							<h3>Proactively Pontificate</h3>
-							<p>Holistically pontificate installed base portals after maintainable products.</p>
+							<h3></h3>
+							<p></p>
+						</div>
+					</div>
+                    <div class="item">
+						<a href="#">
+							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/u=1142551509,1250678540&fm=27&gp=0.jpg' %}" alt="">
+						</a>
+						<div class="carousel-caption">
+							<h3></h3>
+							<p></p>
+						</div>
+					</div>
+                    <div class="item">
+						<a href="#">
+							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/u=1765491996,2418783902&fm=27&gp=0.jpg' %}" alt="">
+						</a>
+						<div class="carousel-caption">
+							<h3></h3>
+							<p></p>
+						</div>
+					</div>
+                      <div class="item">
+						<a href="#">
+							<img class="img-responsive" style="width: 400px;height: 300px" src="{% static 'image/u=2595033135,3363304946&fm=27&gp=0.jpg' %}" alt="">
+						</a>
+						<div class="carousel-caption">
+							<h3></h3>
+							<p></p>
 						</div>
 					</div>
 				</div>
